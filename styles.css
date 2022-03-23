@@ -3,6 +3,10 @@ body {
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
 }
 
 @keyframes gradient {
@@ -16,3 +20,36 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+.container{
+    display:grid;
+    border:solid black 1px;
+    width:320px;
+    border: solid rgb(70, 70, 70) 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+
+.screen{
+    display:flex; 
+    height:120px;
+    border:solid black 1px;
+    background-color: lightgray;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    background-color:antiquewhite;
+}
+
+.buttons > .button{
+    border:solid black 1px;
+}
+
+.buttons .ac{
+    grid-column: 3/-1;
+}
+
+
