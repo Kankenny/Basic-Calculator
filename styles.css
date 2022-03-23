@@ -4,9 +4,14 @@ body {
 	animation: gradient 15s ease infinite;
 	height: 100vh;
     display:flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    font-size: 60px;
+    font-size: 2rem;
+    font-family: Gotham rounded, sans-serif;
+    padding:0;
+    margin:0;
+    color: rgba(0, 0, 0, .90);
 }
 
 @keyframes gradient {
@@ -24,32 +29,62 @@ body {
 .container{
     display:grid;
     border:solid black 1px;
-    width:320px;
-    border: solid rgb(70, 70, 70) 15px;
+    border: solid rgba(70, 70, 70, 0.7) 15px;
     border-radius: 10px;
     box-shadow: 5px 5px black;
+    height: 650px;
+    width: 500px;
 }
 
 .screen{
     display:flex; 
-    height:120px;
     border:solid black 1px;
-    background-color: lightgray;
+    background-color:rgba(0, 0, 0, .60);
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.screen .previousOperand{
+    color: rgba(255, 255, 255, 0.90);
+    height:40px;
+    font-size: 1.5rem;
+}
+
+.screen .currentOperand{
+    color: rgba(255, 255, 255, 0.90);
+    height:60px;
+    font-size: 2.5rem;
 }
 
 .buttons{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
-    background-color:antiquewhite;
+    line-height: 49.891px;
+    background-color:rgba(195, 195, 195, .60);
+    border:solid black 1px;
+    padding:1px;
 }
 
 .buttons > .button{
-    border:solid black 1px;
+    border:solid white 1px;
+    padding:20px;
+}
+
+.buttons > .button:hover{
+    background-color:rgba(195, 195, 195, .90);
 }
 
 .buttons .ac{
+    grid-column: 1/3;
+}
+
+.buttons .equals{
     grid-column: 3/-1;
 }
 
-
+.footer{
+    font-size: 15px;
+}
