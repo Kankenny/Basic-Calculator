@@ -92,10 +92,12 @@ class Calculator{
                 break;
 
             case '×':
+            case 'x':
                 this.result = previous * current;
                 break;
 
             case '÷':
+            case '/':
                 if(current === 0){
                     this.clear();
                     this.result = 'Math Error';
@@ -104,6 +106,7 @@ class Calculator{
                 this.result = previous / current;
                 break;
 
+           
             default:
                 return;
         }
@@ -160,23 +163,52 @@ equalsButton.addEventListener('click', () => {
     calculator.updateDisplay();
 })
 
+//adding keyboard input functionality
+document.onkeydown = function(event) {
 
-function add(a, b){
-    return a + b;
-}
+    console.log(event.keyCode);
 
-function subtract(a, b){
-    return a - b;
-}
+    const notInRange = (event.keyCode < 8) || (event.keyCode > 8 && event.keyCode < 13) ||
+    (event.keyCode > 13 && event.keyCode < 46) || (event.keyCode === 47) ||
+    (event.keyCode > 57 && event.keyCode < 88) || (event.keyCode > 88 && event.keyCode < 96) || 
+    (event.keyCode === 108) || (event.keyCode === 110) || (event.keyCode > 111 && event.keyCode < 187) || 
+    (event.keyCode === 188) || (event.keyCode === 190) || (event.keyCode > 191);
 
-function multiply(a, b){
-    return a * b;
-}
 
-function divide(a, b){
-    return a / b;
-}
+    if(notInRange){
+        console.log('notinrange');
+        return;
+    }
 
-function modulus(a, b){
-    return a % b;
+    if(event.keyCode === 13){
+        calculator.compute();
+        calculator.updateDisplay();
+        return;
+    }
+
+    if(event.keyCode === 46){
+        calculator.clear();
+        calculator.updateDisplay();
+        return;
+    }
+
+    if(event.keyCode === 8){
+        calculator.delete();
+        calculator.updateDisplay();
+        return;
+    }
+
+    if(event.keyCode === 111 || event.keyCode === 191 || event.keyCode === 109 || event.keyCode === 189
+        ||event.keyCode === 88 || event.keyCode === 106 || event.keyCode === 107 || event.keyCode === 187){
+        calculator.chooseOperation(event.key);
+        calculator.updateDisplay();
+        return;
+    }
+
+    
+
+
+	calculator.appendNumber(event.key);
+    calculator.updateDisplay();
+	
 }
