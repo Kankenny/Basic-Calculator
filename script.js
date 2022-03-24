@@ -16,9 +16,23 @@ class Calculator{
 
     delete(){
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
+
+        
+        if(this.currentOperandText.innerText == '' && this.previousOperandText.innerText != ''){
+            this.currentOperand = this.previousOperandText.innerText.slice(0, -2);
+            this.previousOperandText.innerText = '';
+            return;
+        }
     }
 
     appendNumber(number){
+        if(this.currentOperand === 'Math Error'){
+            this.clear();
+            this.currentOperand += number;
+            return;
+        }
+
+    
         if(this.currentOperand.length >= 20){
             alert('Number Overflow');
             return;
@@ -39,7 +53,6 @@ class Calculator{
             this.compute();
             previousOperandText.innerText = this.result + " " + operation;
             this.currentOperand = '';
-            this.updateDisplay();
             this.operation = operation;
             return;
         }
@@ -83,6 +96,11 @@ class Calculator{
                 break;
 
             case '÷':
+                if(current === 0){
+                    this.clear();
+                    this.result = 'Math Error';
+                    break;
+                }
                 this.result = previous / current;
                 break;
 

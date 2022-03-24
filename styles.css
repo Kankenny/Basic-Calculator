@@ -71,6 +71,7 @@ body {
 .buttons > .button{
     border:solid white 1px;
     padding:20px;
+    cursor:pointer;
 }
 
 .buttons > .button:hover{
