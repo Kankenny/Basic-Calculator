@@ -26,6 +26,12 @@ body {
 	}
 }
 
+.title{
+    font-size: 3rem; 
+    font-weight: bold;
+    font-style: italic;
+}
+
 .container{
     display:grid;
     border:solid black 1px;
@@ -87,5 +93,5 @@ body {
 }
 
 .footer{
-    font-size: 15px;
+    font-size: 1rem;
 }
