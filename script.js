@@ -15,6 +15,11 @@ class Calculator{
     }
 
     delete(){
+        if(this.currentOperandText.innerText === 'undefined' || this.currentOperandText.innerText === 'Math Error'){
+            this.clear();
+            return;
+        }
+
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
 
         

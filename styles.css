@@ -82,6 +82,8 @@ body {
 
 .buttons > .button:hover{
     background-color:rgba(195, 195, 195, .90);
+    transition: 200ms ease-in-out;
+    transform:translateY(-5px);
 }
 
 .buttons .ac{
